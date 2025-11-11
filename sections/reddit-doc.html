@@ -1,0 +1,96 @@
+<!-- --- REDDIT DOCS SECTION --- -->
+<section id="reddit-doc" class="content-section section-hidden">
+    <a href="#projects" class="doc-link text-sm font-medium uppercase tracking-wider text-accent hover:text-accent-hover transition-colors mb-8 inline-block">← Back to Projects</a>
+    <h2 class="text-2xl font-medium uppercase tracking-wider mb-6">Project: Reddit Comment Analysis</h2>
+    <div class="space-y-5 text-sm leading-relaxed text-content/90 max-w-2xl">
+        <p>When I first started exploring Reddit, I was amazed by how many people shared their opinions, stories, and questions in the comments. But there was one big problem: there were too many comments. Thousands of them. It was impossible to read everything or understand what people were really talking about.</p>
+        <p>That made me curious. What if I could build a system that could read, clean, and organize Reddit comments automatically? What if it could find patterns, group similar opinions, and even help me search semantically for ideas inside all that text?</p>
+        <p>That is how the Reddit Comment Analysis system was born.</p>
+        <p>It is a modular tool that can scrape, process, and analyze Reddit comments using clustering and semantic search. In simple terms, it helps turn messy conversations into understandable insights.</p>
+
+        <h3 class="text-base font-medium text-content pt-4">How the System Works</h3>
+        <p>The system has three main parts:</p>
+        <ol class="list-decimal list-outside pl-5 space-y-1">
+            <li>Data Collection</li>
+            <li>Text Processing</li>
+            <li>Analysis and Search</li>
+        </ol>
+        <p>Each part works like a small worker in a team, passing cleaned and organized data to the next one.</p>
+
+        <h3 class="text-base font-medium text-content pt-4">Step 1: Collecting Comments</h3>
+        <p>The first part is called reddit_scraper.py. It talks directly to Reddit's API to collect comments from a post.</p>
+        <p>When you give it a Reddit link, it turns that link into a JSON endpoint and starts downloading all the comments. It doesn't just take the top-level ones; it also goes deep into the nested replies so nothing is missed.</p>
+        <p>Each comment is saved with its author name, score, timestamp, and content. Everything is stored in a file called reddit_comments.jsonl so that the next layer can use it easily.</p>
+        <p>For example, if I give the scraper a link to a Reddit thread about "AI taking jobs," it collects all comments and their replies — hundreds or even thousands — and saves them neatly.</p>
+
+        <h3 class="text-base font-medium text-content pt-4">Step 2: Cleaning the Text</h3>
+        <p>Raw Reddit comments are messy. They often include usernames, URLs, emojis, and formatting symbols. So the next step, handled by text_cleaner.py, is to clean and normalize them.</p>
+        <p>The cleaner removes extra text, makes everything lowercase, deletes stopwords, and removes duplicates. It even compares similar comments and filters out near-duplicates using a similarity threshold of 0.8, which means two comments that are 80 percent alike are treated as one.</p>
+        <p>After this process, the cleaned text is saved in another file called cleaned_comments.jsonl. This is the version we use for the actual analysis.</p>
+
+        <h3 class="text-base font-medium text-content pt-4">Step 3: Clustering and Semantic Search</h3>
+        <p>Now comes the main part, handled by semantic_search_engine.py. This is where the AI starts to understand what people are saying.</p>
+        <p>It works through a class called CommentClusterer, which runs several steps:</p>
+        <ul class="list-disc list-outside pl-5 space-y-1">
+            <li>It loads the cleaned comments from the file.</li>
+            <li>It creates embeddings for each comment using the OpenAI Embeddings API, which turns text into numerical vectors that capture meaning.</li>
+            <li>It finds patterns and groups similar comments together using K-Means clustering.</li>
+            <li>It then visualizes those clusters on a graph using PCA, showing which comments are close in meaning.</li>
+        </ul>
+        <p>For example, if people are talking about "AI jobs," one cluster might include comments about automation, another about job fear, and another about AI benefits.</p>
+        <p>This helps you see how people feel or what topics dominate the discussion.</p>
+
+        <h3 class="text-base font-medium text-content pt-4">Understanding the Clusters</h3>
+        <p>The clustering system uses Silhouette Analysis and the Elbow Method to find the best number of clusters. Usually, it tests between three and five.</p>
+        <p>Once the clusters are ready, you can generate a report that describes what each group is about. For example, it might say:</p>
+        <ul class="list-disc list-outside pl-5 space-y-1">
+            <li>Cluster 1: Comments about fear of losing jobs to AI.</li>
+            <li>Cluster 2: Comments discussing government regulations.</li>
+            <li>Cluster 3: Comments that are optimistic about new technology.</li>
+        </ul>
+        <p>Each cluster gives a snapshot of public opinion.</p>
+
+        <h3 class="text-base font-medium text-content pt-4">Searching with Meaning</h3>
+        <p>Sometimes, you do not want to read all the clusters. Maybe you just want to find comments about something specific, like "AI job displacement fears."</p>
+        <p>That is where semantic search comes in. You type your query, and the system turns it into an embedding (a vector). Then it compares that vector to all the comment embeddings using cosine similarity.</p>
+        <p>It does not just look for matching words. It looks for meaning. For example, if you search for "fear of automation," it might also find comments about "robots replacing humans."</p>
+        <p>The system returns the top matching comments along with their similarity scores, and you can save the results as a report.</p>
+
+        <h3 class="text-base font-medium text-content pt-4">What You Get</h3>
+        <p>After running the full pipeline, you get several useful files:</p>
+        <ul class="list-disc list-outside pl-5 space-y-1">
+            <li>reddit_comments.jsonl: Raw Reddit comments with metadata.</li>
+            <li>cleaned_comments.jsonl: Comments after cleaning and deduplication.</li>
+            <li>clusters_visualization.png: A 2D image showing how comment groups relate to each other.</li>
+            <li>cluster_analysis_report.txt: A text summary of what each cluster represents.</li>
+            <li>unified_analysis_report.txt: A combined view of clustering and search results.</li>
+        </ul>
+        <p>All this helps turn thousands of comments into something readable and meaningful.</p>
+
+        <h3 class="text-base font-medium text-content pt-4">How It Performs</h3>
+        <p>The system can handle about 1,000 comments using around 6 MB of memory. It costs around $0.02 for embedding those comments using the smaller OpenAI model. It can process batches of 100 comments at a time.</p>
+        <p>It works best for English comments, since that is what the embeddings understand best.</p>
+
+        <h3 class="text-base font-medium text-content pt-4">Example Use</h3>
+        <p>Let's say you want to analyze a Reddit thread about "climate change."</p>
+        <ol class="list-decimal list-outside pl-5 space-y-1">
+            <li>You give the Reddit link to the scraper.</li>
+            <li>It collects all comments.</li>
+            <li>Then you run the cleaner, which removes links, usernames, and emojis.</li>
+            <li>Next, you run the analyzer. It groups the comments into clusters, like:
+                <ul class="list-disc list-outside pl-5 ml-5 space-y-1">
+                    <li>People worried about rising temperatures.</li>
+                    <li>People debating government policy.</li>
+                    <li>Users sharing hopeful technology solutions.</li>
+                </ul>
+            </li>
+            <li>Finally, you can search within those comments for something like "solar energy" or "climate denial" and instantly get the most relevant results.</li>
+        </ol>
+        <p>This turns an unreadable wall of text into something that feels like a summarized discussion.</p>
+
+        <h3 class="text-base font-medium text-content pt-4">What I Learned</h3>
+        <p>Building this project taught me how to mix data science with language understanding. It also helped me see how online conversations can be studied without reading every single message.</p>
+        <p>Sometimes, data can reveal feelings and ideas that are not visible at first glance. When I first saw the clusters on the graph and noticed that one group of comments was full of fear while another was full of hope, it felt like the system had learned to understand people in a small but real way.</p>
+        <p>The Reddit Comment Analysis project started as a simple idea to organize text, but it became something more meaningful. It showed me how we can use AI not just to process data but to better understand human voices in the digital world.</p>
+    </div>
+</section>

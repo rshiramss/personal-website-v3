@@ -1,0 +1,10 @@
+/* Apply anti-aliasing for smoother fonts */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* We'll use this class to hide sections */
+.section-hidden {
+    display: none;
+}

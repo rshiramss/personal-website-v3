@@ -1,0 +1,88 @@
+<!-- --- CINEFLOW DOCS SECTION --- -->
+<section id="cineflow-doc" class="content-section section-hidden">
+    <a href="#projects" class="doc-link text-sm font-medium uppercase tracking-wider text-accent hover:text-accent-hover transition-colors mb-8 inline-block">← Back to Projects</a>
+    <h2 class="text-2xl font-medium uppercase tracking-wider mb-6">Project: Cineflow</h2>
+
+    <div class="mb-6 flex flex-col space-y-1">
+         <a href="https://devpost.com/software/cineflow" target="_blank" rel="noopener noreferrer" class="text-sm text-accent hover:text-accent-hover transition-colors underline">View Devpost</a>
+         <a href="https://github.com/dgne58/cineflow" target="_blank" rel="noopener noreferrer" class="text-sm text-accent hover:text-accent-hover transition-colors underline">View GitHub Repository</a>
+    </div>
+
+    <div class="space-y-5 text-sm leading-relaxed text-content/90 max-w-2xl">
+        <p>When I first started learning about video editing, I often noticed that one part took a lot of time. Making smooth transitions between two clips was always tricky. If the timing was not right or the lighting looked different, the final video would not feel natural. Good transitions make a video flow nicely, but they can take hours to perfect.</p>
+        <p>That problem gave me the idea for cineflow.</p>
+        <p>cineflow is an AI-powered video editing tool that helps create smooth and professional transitions between two clips automatically. It uses machine learning and computer vision to study your videos and then blend them together in a natural way. You just upload your clips, describe what kind of transition you want, and cineflow does the rest.</p>
+        <p>This project became something very special for me and my team. We built cineflow during the SCU x AIC Hackathon in April 2025, and it won first place.</p>
+
+        <h3 class="text-base font-medium text-content pt-4">How cineflow Works</h3>
+        <p>Imagine you have two short videos. In one, you are walking through a park, and in the next, you are sitting in a coffee shop. If you put them together without editing, the cut between them feels too sudden. But with cineflow, you can upload both videos and ask the AI to create a smooth transition. You can even write a small description, like "soft cinematic fade" or "quick flash cut."</p>
+        <p>cineflow looks at both clips carefully. It uses computer vision to understand what is happening in each scene, such as lighting, angle, and motion. Then it uses machine learning to create the best possible transition based on your request.</p>
+        <p>After a few seconds, it gives you a preview, and you can download the finished video.</p>
+        <p>The idea is to make professional-quality editing easy for everyone, even for people who have never used complicated tools like Adobe Premiere or After Effects.</p>
+
+        <h3 class="text-base font-medium text-content pt-4">The Mission Behind cineflow</h3>
+        <p>Our main goal was to make high-quality video editing simple and open to everyone. Many people, like students, small creators, or casual editors, want to make good videos but do not have the tools or time to do it.</p>
+        <p>With cineflow, all they need is a browser. They can drag, drop, and describe what they want, and AI handles the hard part.</p>
+        <p>For example, if a student wants to make a short film for class, cineflow can automatically add transitions between scenes to make it look professional.</p>
+
+        <h3 class="text-base font-medium text-content pt-4">The Architecture in Simple Words</h3>
+        <p>cineflow has two main parts: the frontend and the backend.</p>
+        <p>The frontend is what the user interacts with. It is made with React and Vite to make it fast and responsive. It uses Tailwind CSS for clean design and Radix UI for accessibility. The app also uses Axios to talk to the backend server.</p>
+        <p>The backend is where the AI lives. It uses Node.js and Express for the web server and Python for the machine learning tasks. The AI model we used is called a Vision Transformer, or ViT, which looks at the videos frame by frame and understands the scenes.</p>
+        <p>Here's what happens when a user creates a transition:</p>
+        <ol class="list-decimal list-outside pl-5 space-y-1">
+            <li>The two video clips are uploaded to Cloudinary, a cloud service for videos and images.</li>
+            <li>The AI model checks each frame and studies its motion, lighting, and camera angle.</li>
+            <li>The model classifies the type of scene, such as "close-up," "wide shot," or "slow motion."</li>
+            <li>Based on what it finds, it chooses a matching transition style.</li>
+            <li>It blends the clips and uploads the finished video back to Cloudinary.</li>
+            <li>The user gets a link to preview or download it.</li>
+        </ol>
+        <p>The entire process usually takes less than a minute.</p>
+
+        <h3 class="text-base font-medium text-content pt-4">The AI and Machine Learning Inside cineflow</h3>
+        <p>The Vision Transformer is the brain of cineflow. It looks at each frame like small image patches and learns what they mean. It can tell the difference between a slow-motion clip and a fast-moving one, or between a bright outdoor shot and a dark indoor scene.</p>
+        <p>It classifies scenes into ten categories, such as slow motion, wide shot, close-up, or cinematic lighting. Using this information, cineflow knows which kind of transition will look most natural.</p>
+        <p>For example, if the first clip is fast and the second is slow, cineflow will make a smooth fade instead of a hard cut. If the lighting changes a lot, it adjusts the blend to make it feel balanced.</p>
+        <p>The AI was trained using cinematic footage and optimized to work quickly, even on regular computers.</p>
+
+        <h3 class="text-base font-medium text-content pt-4">Features That Make cineflow Special</h3>
+        <ul class="list-disc list-outside pl-5 space-y-1">
+            <li>Automatic transitions: The AI studies your videos and creates seamless transitions automatically.</li>
+            <li>Custom options: You can control transition duration, aspect ratio, and resolution.</li>
+            <li>Text-based style prompts: You can type things like "dreamy blur fade" or "bright flash cut," and the AI will understand.</li>
+            <li>Real-time preview: You can watch your transition before downloading.</li>
+            <li>Multi-platform support: Works for YouTube, TikTok, Instagram, and more.</li>
+            <li>Batch processing: You can generate several transitions at once if needed.</li>
+        </ul>
+
+        <h3 class="text-base font-medium text-content pt-4">How to Use cineflow</h3>
+        <p>Using cineflow is easy.</p>
+        <ol class="list-decimal list-outside pl-5 space-y-1">
+            <li>Open the app in your browser.</li>
+            <li>Upload two video clips.</li>
+            <li>Set how long you want the transition to be.</li>
+            <li>Choose the aspect ratio and resolution.</li>
+            <li>Type a short description of your desired style.</li>
+            <li>Click "Generate Transition."</li>
+            <li>Watch your preview and download the final video.</li>
+        </ol>
+        <p>Everything is handled online, and there is no need for complex setup.</p>
+
+        <h3 class="text-base font-medium text-content pt-4">The Journey of Building cineflow</h3>
+        <p>During the hackathon, our small team worked very hard. One of us focused on training the AI model, another built the web interface, and another handled the backend. We had to connect everything together in just a few days.</p>
+        <p>There were many challenges. Sometimes the AI created strange transitions, especially when the two clips were very different. Other times, our server crashed because of heavy video files. We spent long nights debugging and testing.</p>
+        <p>But when we finally saw the first perfect transition play smoothly from one clip to another, everyone cheered. It was such a proud moment.</p>
+        <p>During the demo, the judges were impressed by how cineflow made complex editing so simple. When we were announced as the first-place winners, it felt like all the effort was worth it.</p>
+
+        <h3 class="text-base font-medium text-content pt-4">The Future of cineflow</h3>
+        <p>We want to make cineflow even better. One big plan is to connect it with Adobe Creative Cloud, so users can use cineflow directly inside their Adobe apps. We also want to build a mobile version for creators who edit on their phones.</p>
+        <p>In the future, cineflow might also learn your editing style and suggest transitions that match your preferences. It could even add small creative effects like particles or color grading automatically.</p>
+        <p>Our dream is to turn cineflow into a creative assistant that helps storytellers bring their ideas to life easily.</p>
+
+        <h3 class="text-base font-medium text-content pt-4">What I Learned</h3>
+        <p>Building cineflow taught me more than just programming. It showed me how teamwork, creativity, and persistence can turn a small idea into something real. I learned that AI is not only for research or science. It can also be used for art and storytelling.</p>
+        <p>When I look at cineflow now, I feel proud. It started as a simple idea to make editing faster, but it became something that helps people express themselves through video. Every time I see a smooth transition made by cineflow, it reminds me of that hackathon night and the excitement of watching our idea come alive.</p>
+        <p>That feeling is what makes building projects like this truly special.</p>
+    </div>
+</section>
