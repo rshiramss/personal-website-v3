@@ -1,0 +1,8 @@
+{
+  "name": "personal-website-v3",
+  "version": "1.0.0",
+  "description": "Personal portfolio website",
+  "scripts": {
+    "vercel-build": "echo 'Static site, no build needed'"
+  }
+}
