@@ -1,7 +1,7 @@
 {
   "name": "personal-website-v3",
   "version": "1.0.0",
-  "description": "Personal portfolio website",
+  "description": "Personal portfolio website (homepage: new_website.html)",
   "scripts": {
     "vercel-build": "echo 'Static site, no build needed'"
   }

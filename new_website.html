@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rishit Sai Shiramshetti</title>
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Mermaid.js for Technical Diagrams -->
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ 
+            startOnLoad: true, 
+            theme: 'base',
+            themeVariables: {
+                primaryColor: '#ffffff',
+                primaryTextColor: '#374151',
+                primaryBorderColor: '#d1d5db',
+                lineColor: '#9ca3af',
+                secondaryColor: '#f3f4f6',
+                tertiaryColor: '#ffffff'
+            }
+        });
+    </script>
+    <style>
+        /* Ensuring a clean, modern sans-serif font stack similar to the template image */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #ffffff;
+        }
+        /* Custom utility to hide sections smoothly */
+        .section-hidden {
+            display: none;
+        }
+        /* Styling for the mermaid diagrams to blend with the minimalist theme */
+        .mermaid {
+            display: flex;
+            justify-content: center;
+            margin: 2rem 0;
+            padding: 1rem;
+            border: 1px solid #f3f4f6;
+            border-radius: 0.25rem;
+            background-color: #fafafa;
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased min-h-screen flex flex-col scroll-smooth">
+
+    <!-- Header Navigation -->
+    <header class="max-w-4xl w-full mx-auto px-6 sm:px-8 pt-10 pb-5 border-b border-gray-200">
+        <div class="flex flex-col sm:flex-row justify-between items-center sm:items-baseline">
+            <h1 class="text-2xl font-light text-gray-700 tracking-wide mb-4 sm:mb-0">
+                <a href="#about" class="hover:text-gray-900 transition-colors">Rishit Sai Shiramshetti</a>
+            </h1>
+            <nav class="flex space-x-5 sm:space-x-7 text-sm font-medium text-gray-400">
+                <a href="#about" class="nav-link text-gray-800 hover:text-black transition-colors" data-target="about">About</a>
+                <a href="#projects" class="nav-link hover:text-black transition-colors" data-target="projects">Projects</a>
+                <a href="#experience" class="nav-link hover:text-black transition-colors" data-target="experience">Experience</a>
+                <a href="#research" class="nav-link hover:text-black transition-colors" data-target="research">Research</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-4xl w-full mx-auto px-6 sm:px-8 py-12">
+        
+        <!-- --- ABOUT SECTION --- -->
+        <section id="about" class="content-section">
+            <h2 class="text-[2.5rem] font-normal text-gray-900 mb-8 tracking-tight">About Me</h2>
+
+            <div class="clearfix text-gray-500 leading-relaxed text-[15px] max-w-3xl">
+                <!-- Floated Image -->
+                <img 
+                    src="index.png" 
+                    alt="Rishit Sai Shiramshetti" 
+                    class="float-right w-52 sm:w-60 h-auto ml-6 sm:ml-8 mb-4 rounded-sm shadow-sm object-cover"
+                    onerror="this.src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=facearea&facepad=2.2&w=256&h=256&q=80'" 
+                >
+
+                <!-- Text Paragraphs -->
+                <p class="mb-5">
+                    Hello! I'm Rishit, a Computer Science student at <strong>Santa Clara University</strong> (Class of 2027). I am highly passionate about agentic applications, machine learning, and building data-driven intelligent systems.
+                </p>
+
+                <p class="mb-5">
+                    I love seeing how computers can make smart, autonomous decisions when provided with robust data and logical workflows. Whether it's developing dynamic multi-agent systems or optimizing algorithms, it feels amazing to build systems that can understand the world more deeply and solve real-life problems.
+                </p>
+
+                <p class="mb-5">
+                    Currently, my coursework includes Data Structures, Object-Oriented Programming, Embedded Systems, and the Theory of Automata. Outside of class, I actively participate in hackathons and independent research to test new ideas and push the boundaries of what AI can automate.
+                </p>
+
+                <!-- Skills & Education Block -->
+                <div class="mt-10 pt-8 border-t border-gray-100">
+                    <h3 class="text-sm font-semibold text-gray-900 uppercase tracking-wider mb-5">Technical Arsenal</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 text-sm text-gray-600">
+                        <div>
+                            <strong class="text-gray-800 block mb-1">Languages</strong>
+                            Python, C++, Java, JavaScript (ES6+), HTML5, CSS3, Lua
+                        </div>
+                        <div>
+                            <strong class="text-gray-800 block mb-1">Technologies & Frameworks</strong>
+                            React, Firebase, TensorFlow, OpenCV, Vision Transformers, CrewAI
+                        </div>
+                        <div class="sm:col-span-2 mt-2">
+                            <strong class="text-gray-800 block mb-1">Core Competencies</strong>
+                            Machine Learning, RAG, LLMs, Semantic Search, Vector Databases, Prompt Engineering, Algorithms & Data Structures, Object-Oriented Programming
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- --- PROJECTS SECTION --- -->
+        <section id="projects" class="content-section section-hidden">
+            <h2 class="text-[2.5rem] font-normal text-gray-900 mb-8 tracking-tight">Projects</h2>
+
+            <div class="space-y-12 text-gray-500 leading-relaxed text-[15px] max-w-3xl">
+
+                <!-- Project 1: ToolForge -->
+                <div class="border-b border-gray-100 pb-8">
+                    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
+                        <div class="flex flex-wrap items-center gap-3 mb-1 sm:mb-0">
+                            <h3 class="text-lg font-medium text-gray-800">ToolForge</h3>
+                            <span class="bg-blue-50 text-blue-700 border border-blue-200 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide">2nd Place • Llama Lounge Hackathon</span>
+                        </div>
+                        <span class="text-xs text-gray-400 font-medium tracking-wide whitespace-nowrap">MAR 2026</span>
+                    </div>
+                    <p class="mb-4 text-gray-600">A self-expanding multi-agent workflow that dynamically generates and validates its own tools instead of relying on a fixed toolset. Designed a Planner agent checking 150+ Composio integrations, and a Builder agent that writes and passes new tools to a Llama-based Validator.</p>
+                    <div class="flex items-center flex-wrap gap-4">
+                        <a href="#toolforge-doc" class="doc-link text-sm font-medium text-gray-800 hover:text-black transition-colors underline decoration-gray-300 underline-offset-4">Read Documentation</a>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs text-gray-400 border border-gray-200 px-2 py-0.5 rounded-sm">Python</span>
+                            <span class="text-xs text-gray-400 border border-gray-200 px-2 py-0.5 rounded-sm">CrewAI</span>
+                            <span class="text-xs text-gray-400 border border-gray-200 px-2 py-0.5 rounded-sm">Llama</span>
+                            <span class="text-xs text-gray-400 border border-gray-200 px-2 py-0.5 rounded-sm">Snowflake</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2: Cineflow -->
+                <div class="border-b border-gray-100 pb-8">
+                    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
+                        <div class="flex flex-wrap items-center gap-3 mb-1 sm:mb-0">
+                            <h3 class="text-lg font-medium text-gray-800">Cineflow</h3>
+                            <span class="bg-orange-50 text-orange-700 border border-orange-200 text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide">1st Place • AIC x Adobe Hackathon</span>
+                        </div>
+                        <span class="text-xs text-gray-400 font-medium tracking-wide whitespace-nowrap">APR 2025</span>
+                    </div>
+                    <p class="mb-4 text-gray-600">An AI Video Transition Generator. Designed and fine-tuned a Vision Transformer on 10k clips, achieving a 23% higher cut-point F1 score than baselines. Deployed the model as a GPU-backed microservice on AWS, delivering sub-250 ms inference.</p>
+                    <div class="flex items-center flex-wrap gap-4">
+                        <a href="#cineflow-doc" class="doc-link text-sm font-medium text-gray-800 hover:text-black transition-colors underline decoration-gray-300 underline-offset-4">Read Documentation</a>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs text-gray-400 border border-gray-200 px-2 py-0.5 rounded-sm">React</span>
+                            <span class="text-xs text-gray-400 border border-gray-200 px-2 py-0.5 rounded-sm">TensorFlow</span>
+                            <span class="text-xs text-gray-400 border border-gray-200 px-2 py-0.5 rounded-sm">Vision Transformers</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Reddit Comment Analysis -->
+                <div class="border-b border-gray-100 pb-8">
+                    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
+                        <h3 class="text-lg font-medium text-gray-800">Reddit Comment Analysis</h3>
+                        <span class="text-xs text-gray-400 font-medium tracking-wide">AUG 2025</span>
+                    </div>
+                    <p class="mb-4 text-gray-600">A modular NLP system for scraping, processing, and analyzing Reddit data sets using K-Means clustering algorithms and vector-based semantic search.</p>
+                    <div class="flex items-center space-x-4">
+                        <a href="#reddit-doc" class="doc-link text-sm font-medium text-gray-800 hover:text-black transition-colors underline decoration-gray-300 underline-offset-4">Read Documentation</a>
+                        <div class="flex gap-2">
+                            <span class="text-xs text-gray-400 border border-gray-200 px-2 py-0.5 rounded-sm">Python</span>
+                            <span class="text-xs text-gray-400 border border-gray-200 px-2 py-0.5 rounded-sm">ML</span>
+                            <span class="text-xs text-gray-400 border border-gray-200 px-2 py-0.5 rounded-sm">NLP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Gradient -->
+                <div>
+                    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
+                        <h3 class="text-lg font-medium text-gray-800">Gradient</h3>
+                        <span class="text-xs text-gray-400 font-medium tracking-wide">JUN 2025</span>
+                    </div>
+                    <p class="mb-4 text-gray-600">A networking platform for university students built with modern web technologies, utilizing semantic search to match users based on high-dimensional text embeddings.</p>
+                    <div class="flex items-center space-x-4">
+                        <a href="#gradient-doc" class="doc-link text-sm font-medium text-gray-800 hover:text-black transition-colors underline decoration-gray-300 underline-offset-4">Read Documentation</a>
+                        <div class="flex gap-2">
+                            <span class="text-xs text-gray-400 border border-gray-200 px-2 py-0.5 rounded-sm">React</span>
+                            <span class="text-xs text-gray-400 border border-gray-200 px-2 py-0.5 rounded-sm">Firebase</span>
+                            <span class="text-xs text-gray-400 border border-gray-200 px-2 py-0.5 rounded-sm">Semantic Search</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- --- EXPERIENCE SECTION --- -->
+        <section id="experience" class="content-section section-hidden">
+            <h2 class="text-[2.5rem] font-normal text-gray-900 mb-8 tracking-tight">Experience</h2>
+
+            <div class="space-y-12 text-gray-500 leading-relaxed text-[15px] max-w-3xl">
+                <!-- Work 1: CanyonView -->
+                <div>
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
+                        <h3 class="text-lg font-medium text-gray-800">Canyon View Technology</h3>
+                        <span class="text-sm text-gray-400 whitespace-nowrap">Jun 2023 – Aug 2023</span>
+                    </div>
+                    <p class="text-sm font-medium text-gray-500 mb-4">Technology Intern &nbsp;&middot;&nbsp; Remote</p>
+                    <ul class="list-disc list-outside pl-5 space-y-2 text-gray-600">
+                        <li>Developed and implemented a Lua script utilizing the Haversine equation to enhance rover navigation precision based on GPS coordinates.</li>
+                        <li>Conducted comprehensive testing and created technical documentation detailing methodologies, implementation challenges, and solutions.</li>
+                    </ul>
+                </div>
+
+                <!-- Work 2: Mathnasium -->
+                <div>
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
+                        <h3 class="text-lg font-medium text-gray-800">Mathnasium</h3>
+                        <span class="text-sm text-gray-400 whitespace-nowrap">Feb 2023 – Jun 2023</span>
+                    </div>
+                    <p class="text-sm font-medium text-gray-500 mb-4">Mathematics Tutor &nbsp;&middot;&nbsp; Santa Clara, CA</p>
+                    <ul class="list-disc list-outside pl-5 space-y-2 text-gray-600">
+                        <li>Tutored 15+ students in mathematics through individualized learning plans, improving grades by an average of one letter grade.</li>
+                        <li>Provided regular progress reports to parents and fostered positive learning relationships to ensure student success.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- --- RESEARCH SECTION --- -->
+        <section id="research" class="content-section section-hidden">
+            <h2 class="text-[2.5rem] font-normal text-gray-900 mb-8 tracking-tight">Research</h2>
+            
+            <div class="space-y-12 text-gray-500 leading-relaxed text-[15px] max-w-3xl">
+                <!-- Research 1: MAPF -->
+                <div>
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
+                        <h3 class="text-lg font-medium text-gray-800">AI and Multi-Agent Path Finding (MAPF) Solvers</h3>
+                        <span class="text-sm text-gray-400 whitespace-nowrap">Dec 2022 – May 2024</span>
+                    </div>
+                    <p class="text-sm font-medium text-gray-500 mb-4">Independent Research under Dr. Przemysław Walęga and Michał Zawidzki</p>
+                    <ul class="list-disc list-outside pl-5 space-y-2 text-gray-600">
+                        <li>Conducted research on AI knowledge representation and algorithms.</li>
+                        <li>Authored comprehensive research paper evaluating MAPF solver efficacy, computational complexity, and scalability in dynamic environments.</li>
+                    </ul>
+                </div>
+
+                <!-- Research 2: Holographic -->
+                <div>
+                    <div class="flex flex-col sm:flex-row sm:justify-between sm:items-baseline mb-1">
+                        <h3 class="text-lg font-medium text-gray-800">Holographic Data Compression Systems</h3>
+                        <span class="text-sm text-gray-400 whitespace-nowrap">Feb 2022 – Apr 2023</span>
+                    </div>
+                    <p class="text-sm font-medium text-gray-500 mb-4">Independent Research under Prof. Andrew C. Freeman, Baylor University</p>
+                    <ul class="list-disc list-outside pl-5 space-y-2 text-gray-600">
+                        <li>Developed Python-based compression algorithms for holographic storage systems, achieving a 40% improvement in data encoding efficiency.</li>
+                        <li>Authored research paper evaluating state-of-the-art holographic compression methods, analyzing computational complexity and future advancement trajectories.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- --- TOOLFORGE DOCS SECTION --- -->
+        <section id="toolforge-doc" class="content-section section-hidden">
+            <div class="mb-8">
+                <a href="#projects" class="doc-link text-sm text-gray-400 hover:text-gray-800 transition-colors">← Back to Projects</a>
+            </div>
+            
+            <h2 class="text-[2.5rem] font-normal text-gray-900 mb-8 tracking-tight">Project: ToolForge</h2>
+            
+            <div class="text-gray-500 leading-relaxed text-[15px] max-w-3xl space-y-5">
+                <p><strong>Overview:</strong> ToolForge is a self-expanding, multi-agent workflow architecture designed to overcome the limitations of fixed-toolset LLM agents. By allowing agents to dynamically write, test, and validate their own tools at runtime, the system scales its own capabilities autonomously. This project secured 2nd Place at the Cerebral Valley x Llama Lounge Hackathon at Snowflake (Mar 2026).</p>
+
+                <h3 class="text-xl font-medium text-gray-800 pt-6 mb-2">System Architecture</h3>
+                <p>The system is built on top of <strong>CrewAI</strong> and orchestrates a multi-step generation pipeline. Instead of hardcoding API requests, the agents use context to generate custom Python logic.</p>
+
+                <div class="mermaid">
+                    flowchart TD
+                        A["User Query / Task"] --> B["Planner Agent"]
+                        B -->|"Scans 150+ Integrations"| C{"Composio API"}
+                        C --> D["Builder Agent"]
+                        D -->|"Generates Python Code"| E["Llama-based Validator"]
+                        E -->|"Syntax / Logic Fails"| D
+                        E -->|"Passes Tests"| F[("Snowflake Database")]
+                        F -->|"Deploys Tool"| G["Execution Engine"]
+                        G -.-> H(("Skyfire: Autonomous API Mgmt"))
+                </div>
+
+                <h3 class="text-xl font-medium text-gray-800 pt-6 mb-2">Agent Roles & Orchestration</h3>
+                <ul class="list-disc list-outside pl-5 space-y-2 text-gray-600">
+                    <li><strong>The Planner Agent:</strong> Interfaces with Composio to scan through over 150+ available integration schemas, determining exactly what API endpoints are required to fulfill the user's task.</li>
+                    <li><strong>The Builder Agent:</strong> Ingests the schema and writes functional Python execution code, formatting it into a callable tool structure.</li>
+                    <li><strong>The Validator Agent:</strong> A Llama-based quality-control layer that dry-runs the generated code, catches syntax errors, and forces the Builder to iterate until production-ready.</li>
+                </ul>
+
+                <h3 class="text-xl font-medium text-gray-800 pt-6 mb-2">Data Persistence & Infrastructure</h3>
+                <p>To prevent the system from regenerating the same tools repeatedly, successfully validated tools are serialized and persisted into a <strong>Snowflake</strong> database. This essentially gives the agentic framework a long-term "memory" of skills that accumulates across runs.</p>
+                <p>Furthermore, we integrated <strong>Skyfire</strong> to handle autonomous API access and token management, completely eliminating rate-limit interruptions during long-running background workflows.</p>
+            </div>
+        </section>
+
+        <!-- --- CINEFLOW DOCS SECTION --- -->
+        <section id="cineflow-doc" class="content-section section-hidden">
+            <div class="mb-8">
+                <a href="#projects" class="doc-link text-sm text-gray-400 hover:text-gray-800 transition-colors">← Back to Projects</a>
+            </div>
+            
+            <h2 class="text-[2.5rem] font-normal text-gray-900 mb-8 tracking-tight">Project: Cineflow</h2>
+
+            <div class="mb-8 flex space-x-6">
+                <a href="https://devpost.com/software/cineflow" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-800 hover:text-black transition-colors underline decoration-gray-300 underline-offset-4">View Devpost</a>
+                <a href="https://github.com/dgne58/cineflow" target="_blank" rel="noopener noreferrer" class="text-sm font-medium text-gray-800 hover:text-black transition-colors underline decoration-gray-300 underline-offset-4">View GitHub</a>
+            </div>
+
+            <div class="text-gray-500 leading-relaxed text-[15px] max-w-3xl space-y-5">
+                <p><strong>Overview:</strong> cineflow is an AI-powered video processing microservice that autonomously generates perceptually seamless transitions between disparate video clips. Built during the SCU x AIC Hackathon (where it won 1st Place), the platform shifts the burden of tedious timeline keyframing to a highly optimized machine learning pipeline.</p>
+
+                <h3 class="text-xl font-medium text-gray-800 pt-6 mb-2">Computer Vision Pipeline</h3>
+                
+                <div class="mermaid">
+                    flowchart LR
+                        A["Input Clips"] --> B["Frame Extraction"]
+                        B --> C["Vision Transformer (10k clips)"]
+                        C --> D{"Cut-Point Analysis"}
+                        D --> E["Placement Optimizer"]
+                        E --> F["Render Engine"]
+                        F --> G["Seamless Video Output"]
+                        style C fill:#ffffff,stroke:#6b7280
+                        style E fill:#ffffff,stroke:#6b7280
+                </div>
+
+                <p>The core of the system relies on a <strong>Vision Transformer (ViT)</strong>. Rather than using legacy heuristic algorithms for scene detection, the ViT parses incoming frames as sequential image patches, mapping vectors for motion topology, lighting, and camera angle.</p>
+                <p>During the hackathon, we fine-tuned this model on a proprietary dataset of 10,000 cinematic clips. This specialized training regimen resulted in a <strong>23% higher cut-point F1 score</strong> compared to standard C3D baseline models.</p>
+
+                <h3 class="text-xl font-medium text-gray-800 pt-6 mb-2">Optimization & Deployment</h3>
+                <ul class="list-disc list-outside pl-5 space-y-2 text-gray-600">
+                    <li><strong>Dynamic Programming Algorithm:</strong> Once the ViT classifies the bounding scenes, a custom dynamic programming algorithm calculates the optimal temporal overlap for the transition. This specific optimization increased our perceptual continuity score by <strong>18%</strong> in blind testing.</li>
+                    <li><strong>AWS Microservice Architecture:</strong> Processing 1080p footage requires significant computational overhead. To manage this, the entire model was containerized and deployed as a GPU-backed microservice utilizing <strong>AWS Lambda and EFS</strong>.</li>
+                    <li><strong>Performance:</strong> The distributed cloud architecture ensures sub-250 ms inference times for 1080p frame analysis, allowing the React frontend to remain entirely non-blocking.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- --- REDDIT DOCS SECTION --- -->
+        <section id="reddit-doc" class="content-section section-hidden">
+            <div class="mb-8">
+                <a href="#projects" class="doc-link text-sm text-gray-400 hover:text-gray-800 transition-colors">← Back to Projects</a>
+            </div>
+            
+            <h2 class="text-[2.5rem] font-normal text-gray-900 mb-8 tracking-tight">Project: Reddit Comment Analysis</h2>
+            
+            <div class="text-gray-500 leading-relaxed text-[15px] max-w-3xl space-y-5">
+                <p><strong>Overview:</strong> The Reddit Comment Analysis engine is a modular NLP pipeline built to ingest, sanitize, and cluster high-volume asynchronous text data. It abstracts away the noise of massive Reddit threads to extract structured, semantic insights regarding public sentiment and topic frequency.</p>
+
+                <h3 class="text-xl font-medium text-gray-800 pt-6 mb-2">Data Ingestion & Sanitization</h3>
+                <p>The pipeline begins with <code>reddit_scraper.py</code>, interfacing directly with the Reddit API to construct a deep-tree traversal of nested JSON comments. The raw <code>.jsonl</code> outputs are immediately passed to the data normalization layer.</p>
+                <p>The sanitization module removes unicode artifacts, normalizes casing, and filters stop-words. Crucially, it implements a deduplication threshold utilizing a 0.8 cosine similarity boundary to drop bot-spam and near-identical copy-pasta.</p>
+
+                <div class="mermaid">
+                    flowchart TD
+                        A["Reddit API"] --> B["Data Sanitization and Deduplication"]
+                        B --> C["OpenAI Embeddings Model"]
+                        C --> D[("Vector Store")]
+                        D --> E["K-Means Clustering"]
+                        D --> F["Semantic Search Engine"]
+                        E --> G["PCA Dimensionality Reduction"]
+                        G --> H["Cluster Visualization"]
+                </div>
+
+                <h3 class="text-xl font-medium text-gray-800 pt-6 mb-2">Clustering & Dimensionality Reduction</h3>
+                <p>Text data is mapped into high-dimensional vector space using the <strong>OpenAI Embeddings API</strong>. To identify emergent topics without supervised labeling, the system utilizes <strong>K-Means Clustering</strong>.</p>
+                <p>Because the vector space is highly dimensional, determining the correct value for <em>K</em> is handled algorithmically via <strong>Silhouette Analysis</strong> and the <strong>Elbow Method</strong>. To allow human readability, the clustered data is passed through Principal Component Analysis (PCA) to reduce the dimensionality to a 2D plane, generating an objective map of topical proximity.</p>
+
+                <h3 class="text-xl font-medium text-gray-800 pt-6 mb-2">Semantic Search Integration</h3>
+                <p>Rather than relying on legacy keyword matching (like BM25), the engine allows for semantic search. User queries are embedded using the same vectorizer and compared against the comment corpus via cosine similarity operations, returning highly contextual matches even when precise vocabulary differs.</p>
+            </div>
+        </section>
+
+        <!-- --- GRADIENT DOCS SECTION --- -->
+        <section id="gradient-doc" class="content-section section-hidden">
+            <div class="mb-8">
+                <a href="#projects" class="doc-link text-sm text-gray-400 hover:text-gray-800 transition-colors">← Back to Projects</a>
+            </div>
+            
+            <h2 class="text-[2.5rem] font-normal text-gray-900 mb-8 tracking-tight">Project: Gradient</h2>
+            
+            <div class="text-gray-500 leading-relaxed text-[15px] max-w-3xl space-y-5">
+                <p><strong>Overview:</strong> Gradient is a localized networking platform designed to connect university students and alumni based on nuanced, technical interests rather than broad degree titles. It leverages a modern React/Firebase stack integrated with an AI-driven semantic search engine.</p>
+
+                <h3 class="text-xl font-medium text-gray-800 pt-6 mb-2">Technical Architecture</h3>
+                <p>The application is structured as a Single Page Application (SPA) using <strong>React</strong> and styled with Tailwind CSS to ensure a highly responsive, low-latency UI. User schemas, session states, and profile metadata are securely managed via a <strong>Firebase Firestore</strong> NoSQL backend.</p>
+
+                <div class="mermaid">
+                    sequenceDiagram
+                        participant U as User
+                        participant F as Frontend
+                        participant A as Embeddings API
+                        participant DB as Firestore
+                        
+                        U->>F: Enters Search Query
+                        F->>A: Request Query Embedding
+                        A-->>F: Return High-Dim Vector
+                        F->>DB: Fetch User Pool Vectors
+                        DB-->>F: Return Vector Set
+                        Note over F: Calculate Cosine Similarity
+                        F->>U: Render Ranked Matches
+                </div>
+
+                <h3 class="text-xl font-medium text-gray-800 pt-6 mb-2">Semantic Matching Engine</h3>
+                <p>The primary technical hurdle for Gradient was moving beyond basic exact-string matching (e.g., matching "Software Engineer" only with "Software Engineer").</p>
+                <p>By mapping user bios, project descriptions, and search queries into high-dimensional vector embeddings, Gradient calculates the nearest neighbors utilizing <strong>Cosine Similarity</strong> formulas. This allows the system to recognize that a search for "AI Developer" is semantically proximate to a user profile listing "Machine Learning Engineer", surfacing highly relevant connections that traditional relational database queries would drop.</p>
+                <p>To ensure high availability, the frontend utilizes local caching mechanisms and falls back to standard Firestore index queries if the embedding API experiences downtime.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer Social Icons -->
+    <footer class="w-full pb-16 pt-8 flex justify-center mt-auto">
+        <div class="flex space-x-3">
+            <a href="mailto:rshiramshetti@scu.edu" class="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-gray-700 hover:border-gray-300 transition-all shadow-sm" aria-label="Email">
+                <i class="fas fa-envelope text-sm"></i>
+            </a>
+            <a href="https://github.com/rshiramss" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-gray-700 hover:border-gray-300 transition-all shadow-sm" aria-label="GitHub">
+                <i class="fab fa-github text-sm"></i>
+            </a>
+            <a href="https://linkedin.com/in/rishitshiramshetti" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-400 hover:text-gray-700 hover:border-gray-300 transition-all shadow-sm" aria-label="LinkedIn">
+                <i class="fab fa-linkedin text-sm"></i>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Script to handle SPA Navigation matching the template layout -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const sections = document.querySelectorAll('.content-section');
+            const docLinks = document.querySelectorAll('.doc-link');
+
+            function showSection(hash) {
+                // If no hash, default to #about
+                const targetHash = hash || '#about';
+                const targetId = targetHash.substring(1);
+
+                // Hide all sections smoothly
+                sections.forEach(section => {
+                    section.classList.add('section-hidden');
+                });
+
+                // Show the target section
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.classList.remove('section-hidden');
+                }
+
+                // Update nav link styles
+                navLinks.forEach(link => {
+                    const isDocPage = targetId.endsWith('-doc');
+                    const linkTarget = link.getAttribute('data-target');
+
+                    if (linkTarget === targetId || (isDocPage && linkTarget === 'projects')) {
+                        // Active link
+                        link.classList.remove('text-gray-400');
+                        link.classList.add('text-gray-800');
+                    } else {
+                        // Inactive links
+                        link.classList.add('text-gray-400');
+                        link.classList.remove('text-gray-800');
+                    }
+                });
+
+                // Scroll to top of page gently on section change
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            function handleLinkClick(e, link) {
+                e.preventDefault(); 
+                const hash = link.getAttribute('href');
+                if (window.location.hash !== hash) {
+                    window.location.hash = hash;
+                } else {
+                    showSection(hash);
+                }
+            }
+
+            navLinks.forEach(link => link.addEventListener('click', (e) => handleLinkClick(e, link)));
+            docLinks.forEach(link => link.addEventListener('click', (e) => handleLinkClick(e, link)));
+
+            window.addEventListener('hashchange', () => {
+                showSection(window.location.hash);
+            });
+
+            // Init
+            showSection(window.location.hash || '#about');
+        });
+    </script>
+</body>
+</html>
