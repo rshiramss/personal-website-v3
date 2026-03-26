@@ -161,23 +161,6 @@
                     </div>
                 </div>
 
-                <!-- Project 3: Reddit Comment Analysis -->
-                <div class="border-b border-gray-100 pb-8">
-                    <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
-                        <h3 class="text-lg font-medium text-gray-800">Reddit Comment Analysis</h3>
-                        <span class="text-xs text-gray-400 font-medium tracking-wide">AUG 2025</span>
-                    </div>
-                    <p class="mb-4 text-gray-600">A modular NLP system for scraping, processing, and analyzing Reddit data sets using K-Means clustering algorithms and vector-based semantic search.</p>
-                    <div class="flex items-center space-x-4">
-                        <a href="#reddit-doc" class="doc-link text-sm font-medium text-gray-800 hover:text-black transition-colors underline decoration-gray-300 underline-offset-4">Read Documentation</a>
-                        <div class="flex gap-2">
-                            <span class="text-xs text-gray-400 border border-gray-200 px-2 py-0.5 rounded-sm">Python</span>
-                            <span class="text-xs text-gray-400 border border-gray-200 px-2 py-0.5 rounded-sm">ML</span>
-                            <span class="text-xs text-gray-400 border border-gray-200 px-2 py-0.5 rounded-sm">NLP</span>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Project 4: Gradient -->
                 <div>
                     <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between mb-2">
@@ -342,41 +325,6 @@
                     <li><strong>AWS Microservice Architecture:</strong> Processing 1080p footage requires significant computational overhead. To manage this, the entire model was containerized and deployed as a GPU-backed microservice utilizing <strong>AWS Lambda and EFS</strong>.</li>
                     <li><strong>Performance:</strong> The distributed cloud architecture ensures sub-250 ms inference times for 1080p frame analysis, allowing the React frontend to remain entirely non-blocking.</li>
                 </ul>
-            </div>
-        </section>
-
-        <!-- --- REDDIT DOCS SECTION --- -->
-        <section id="reddit-doc" class="content-section section-hidden">
-            <div class="mb-8">
-                <a href="#projects" class="doc-link text-sm text-gray-400 hover:text-gray-800 transition-colors">← Back to Projects</a>
-            </div>
-            
-            <h2 class="text-[2.5rem] font-normal text-gray-900 mb-8 tracking-tight">Project: Reddit Comment Analysis</h2>
-            
-            <div class="text-gray-500 leading-relaxed text-[15px] max-w-3xl space-y-5">
-                <p><strong>Overview:</strong> The Reddit Comment Analysis engine is a modular NLP pipeline built to ingest, sanitize, and cluster high-volume asynchronous text data. It abstracts away the noise of massive Reddit threads to extract structured, semantic insights regarding public sentiment and topic frequency.</p>
-
-                <h3 class="text-xl font-medium text-gray-800 pt-6 mb-2">Data Ingestion & Sanitization</h3>
-                <p>The pipeline begins with <code>reddit_scraper.py</code>, interfacing directly with the Reddit API to construct a deep-tree traversal of nested JSON comments. The raw <code>.jsonl</code> outputs are immediately passed to the data normalization layer.</p>
-                <p>The sanitization module removes unicode artifacts, normalizes casing, and filters stop-words. Crucially, it implements a deduplication threshold utilizing a 0.8 cosine similarity boundary to drop bot-spam and near-identical copy-pasta.</p>
-
-                <div class="mermaid">
-                    flowchart TD
-                        A["Reddit API"] --> B["Data Sanitization and Deduplication"]
-                        B --> C["OpenAI Embeddings Model"]
-                        C --> D[(Vector Store)]
-                        D --> E["K-Means Clustering"]
-                        D --> F["Semantic Search Engine"]
-                        E --> G["PCA Dimensionality Reduction"]
-                        G --> H["Cluster Visualization"]
-                </div>
-
-                <h3 class="text-xl font-medium text-gray-800 pt-6 mb-2">Clustering & Dimensionality Reduction</h3>
-                <p>Text data is mapped into high-dimensional vector space using the <strong>OpenAI Embeddings API</strong>. To identify emergent topics without supervised labeling, the system utilizes <strong>K-Means Clustering</strong>.</p>
-                <p>Because the vector space is highly dimensional, determining the correct value for <em>K</em> is handled algorithmically via <strong>Silhouette Analysis</strong> and the <strong>Elbow Method</strong>. To allow human readability, the clustered data is passed through Principal Component Analysis (PCA) to reduce the dimensionality to a 2D plane, generating an objective map of topical proximity.</p>
-
-                <h3 class="text-xl font-medium text-gray-800 pt-6 mb-2">Semantic Search Integration</h3>
-                <p>Rather than relying on legacy keyword matching (like BM25), the engine allows for semantic search. User queries are embedded using the same vectorizer and compared against the comment corpus via cosine similarity operations, returning highly contextual matches even when precise vocabulary differs.</p>
             </div>
         </section>
 
