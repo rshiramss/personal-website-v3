@@ -11,6 +11,7 @@
     <!-- Mermaid.js for Technical Diagrams -->
     <script type="module">
         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+        window.mermaid = mermaid;
         mermaid.initialize({ 
             startOnLoad: true, 
             theme: 'base',
@@ -284,7 +285,7 @@
                         C --> D["Builder Agent"]
                         D -->|"Generates Python Code"| E["Llama-based Validator"]
                         E -->|"Syntax / Logic Fails"| D
-                        E -->|"Passes Tests"| F[("Snowflake Database")]
+                        E -->|"Passes Tests"| F[(Snowflake Database)]
                         F -->|"Deploys Tool"| G["Execution Engine"]
                         G -.-> H(("Skyfire: Autonomous API Mgmt"))
                 </div>
@@ -363,7 +364,7 @@
                     flowchart TD
                         A["Reddit API"] --> B["Data Sanitization and Deduplication"]
                         B --> C["OpenAI Embeddings Model"]
-                        C --> D[("Vector Store")]
+                        C --> D[(Vector Store)]
                         D --> E["K-Means Clustering"]
                         D --> F["Semantic Search Engine"]
                         E --> G["PCA Dimensionality Reduction"]
@@ -454,6 +455,14 @@
                 const targetSection = document.getElementById(targetId);
                 if (targetSection) {
                     targetSection.classList.remove('section-hidden');
+
+                    // Render any Mermaid blocks that were hidden at initial load.
+                    if (window.mermaid) {
+                        const pendingDiagrams = targetSection.querySelectorAll('.mermaid:not([data-processed])');
+                        if (pendingDiagrams.length > 0) {
+                            window.mermaid.run({ nodes: pendingDiagrams });
+                        }
+                    }
                 }
 
                 // Update nav link styles
